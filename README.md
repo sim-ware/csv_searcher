@@ -21,9 +21,12 @@
   Lists?YUP
 
 -see if we can handle for one search term
--take the first
--fuzz match against the file for the ones with the highest score
--and return them
+-take the firstYUP
+-fuzz match against the file for the ones with the highest scoreYUP
+-and return themYUP
+
+-can we get them to fit the format?
+-can we repeat for the whole file, and return the whole output?
 
   n
 score,id,name,brand
