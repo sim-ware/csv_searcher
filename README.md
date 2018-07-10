@@ -1,4 +1,6 @@
 # csv_searcher
+# Disclaimers
+-edited the dataset to have Columns of id, name, brand
 
 # Pandas // DataFraming
 -seemed like the most nimble way to handle a csv in memory
@@ -18,7 +20,10 @@
 -read the .txt file and store the query strings as an appropriate form. List of
   Lists?YUP
 
-
+-see if we can handle for one search term
+-take the first
+-fuzz match against the file for the ones with the highest score
+-and return them
 
   n
 score,id,name,brand
