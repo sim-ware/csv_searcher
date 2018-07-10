@@ -14,6 +14,21 @@
 
 # MVP
 -read the csv to a dataframeYUP
--create a separate .txt file with the example queries
+-create a separate .txt file with the example queriesYUP
 -read the .txt file and store the query strings as an appropriate form. List of
-  Lists?
+  Lists?YUP
+
+
+
+  n
+score,id,name,brand
+score,id,name,brand
+...
+
+2
+0.9242,564,asos red bag,asos
+0.7654,1245,reddish small bag,asos
+3
+0.6721,6721,prada red shirt,prada
+0.6311,13,prada reddish nice shirt,prada
+0.5794,56216,bright yello shirt,prada
