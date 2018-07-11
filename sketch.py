@@ -18,45 +18,28 @@ f.close()
 x = [line.strip('\n') for line in x]
 
 
-# Obtaining Result #TODO: return list of lists for all examples
+# Obtaining Result
 ##################
 result_scorelist = []
 
 for example in x:
-    print(example)
     result = process.extract(example, names, scorer=fuzz.token_sort_ratio, limit=10)
-    print(result)
     result_scorelist.append(result)
-# print(result_scorelist)
 
 
 # Formatting Result
 ###################
 result_list = []
 for idx,result in enumerate(result_scorelist):
-    print(idx)
-    print(result)
-    nup = []
+    dfquery_list = []
     for i,res in enumerate(result):
-        print(i)
-        print(res)
-        yup = df.loc[df['name'] == res[0]]
-        yup = yup.to_dict('records')[0]
-        yup['score'] = res[1]
-        print(yup)
-        nup.append(yup)
-    # result_list.append(yup)
-    result_list.append(nup)
-# print(result_list)
-print(result_list[-1])
-
-# yup = df.loc[df['name'] == result[0][0]]
-# yup = yup.to_dict('records')[0]
-# yup['score'] = result[0][1]
-# print(yup)
-
-
-
+        dfquery = df.loc[df['name'] == res[0]]
+        dfquery = dfquery.to_dict('records')[0]
+        dfquery['score'] = res[1]
+        dfquery_list.append(dfquery)
+    result_list.append(dfquery_list)
+print(result_list)
+print(len(result_list))
 
 
 #   n

@@ -25,8 +25,8 @@
 -fuzz match against the file for the ones with the highest scoreYUP
 -and return themYUP
 
--can we get them to fit the format?
--can we repeat for the whole file, and return the whole output?
+-can we get them to fit the format?YUP
+-can we repeat for the whole file, and return the whole output?YUP
 
   n
 score,id,name,brand
