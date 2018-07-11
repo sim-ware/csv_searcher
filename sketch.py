@@ -7,8 +7,6 @@ from fuzzywuzzy import process
 #############################################
 df = pd.read_csv('search_dataset.csv')
 names = df['name'].tolist()
-print(df.head())
-print(names[0:9])
 
 
 # Having put some examples into a .txt file, read them into a List
@@ -18,49 +16,47 @@ x = f.readlines()
 f.close()
 
 x = [line.strip('\n') for line in x]
-print(x)
 
 
-# Obtaining Result
+# Obtaining Result #TODO: return list of lists for all examples
 ##################
-example = x[0]
-print(example)
+result_scorelist = []
 
-result = process.extract(example, names, scorer=fuzz.token_sort_ratio, limit=10)
-print(result)
+for example in x:
+    print(example)
+    result = process.extract(example, names, scorer=fuzz.token_sort_ratio, limit=10)
+    print(result)
+    result_scorelist.append(result)
+# print(result_scorelist)
 
 
 # Formatting Result
 ###################
-yup = df.loc[df['name'] == result[0][0]]
-yup = yup.to_dict('records')[0]
-# aDict = {}
-# aDict[key] = value
-yup['score'] = result[0][1]
-print(yup)
+result_list = []
+for idx,result in enumerate(result_scorelist):
+    print(idx)
+    print(result)
+    nup = []
+    for i,res in enumerate(result):
+        print(i)
+        print(res)
+        yup = df.loc[df['name'] == res[0]]
+        yup = yup.to_dict('records')[0]
+        yup['score'] = res[1]
+        print(yup)
+        nup.append(yup)
+    # result_list.append(yup)
+    result_list.append(nup)
+# print(result_list)
+print(result_list[-1])
+
+# yup = df.loc[df['name'] == result[0][0]]
+# yup = yup.to_dict('records')[0]
+# yup['score'] = result[0][1]
+# print(yup)
 
 
-#TODO: Create a Dict, and List to store each one in.
-#TODO: Dict should have score//id//name//brand
 
-# mega_l=[]
-# for idx, searchterm in enumerate(x):
-#     l = []
-#     result = process.extract(searchterm, choices, limit=10)
-#     print(result)
-#     print(idx)
-#     print(searchterm)
-#     for idx,item in enumerate(result):
-#         d={}
-#         print(idx)
-#         print(item)
-#         print(item[0])
-#         yup = df.loc[df['name'] == item[0]].to_dict()
-#         print(yup)
-#         l.append(d)
-#     mega_l.append(l)
-#
-# print(mega_l)
 
 
 #   n
