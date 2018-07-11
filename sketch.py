@@ -38,8 +38,24 @@ for idx,result in enumerate(result_scorelist):
         dfquery['score'] = res[1]
         dfquery_list.append(dfquery)
     result_list.append(dfquery_list)
-print(result_list)
-print(len(result_list))
+# print(result_list)
+# print(len(result_list))
+
+# Render It
+###########
+for idx,result in enumerate(result_list):
+    print('----------------------------')
+    print(str(idx) + ')SEARCHTERM:' + str(x[idx]))
+    # print()
+    print('----------------------------')
+    # print(result[idx])
+    # print('----------------------------')
+    for idx,item in enumerate(result):
+        # print(idx)
+        # print('----------------------------')
+        print('|Score:' + str(item['score']) + '|ID:' + str(item['id']) + '|Name:' + str(item['name']) + '|Brand:' + str(item['brand']))
+
+
 
 
 #   n
