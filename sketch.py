@@ -1,4 +1,5 @@
 import pandas as pd
+from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 
 
@@ -9,6 +10,7 @@ names = df['name'].tolist()
 print(df.head())
 print(names[0:9])
 
+
 # Having put some examples into a .txt file, read them into a List
 ##################################################################
 f = open('example.txt', 'r')
@@ -18,11 +20,14 @@ f.close()
 x = [line.strip('\n') for line in x]
 print(x)
 
+
+#
 ##############
 example = x[0]
 print(example)
 
-
+result = process.extract(example, names, scorer=fuzz.token_sort_ratio, limit=10)
+print(result)
 
 
 #TODO: Create a Dict, and List to store each one in.
