@@ -21,13 +21,23 @@ x = [line.strip('\n') for line in x]
 print(x)
 
 
-#
-##############
+# Obtaining Result
+##################
 example = x[0]
 print(example)
 
 result = process.extract(example, names, scorer=fuzz.token_sort_ratio, limit=10)
 print(result)
+
+
+# Formatting Result
+###################
+yup = df.loc[df['name'] == result[0][0]]
+yup = yup.to_dict('records')[0]
+# aDict = {}
+# aDict[key] = value
+yup['score'] = result[0][1]
+print(yup)
 
 
 #TODO: Create a Dict, and List to store each one in.
